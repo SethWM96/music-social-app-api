@@ -1,2 +1,9 @@
-This is where we put documentation so people can set up the app and work on it.
-Backend api
+# Project Development Start-Up
+Nodemon has been added to the dependencies and the start script to launch automatically. 
+
+**Install Dependencies**
+'npm install'
+
+**Launch Locally**
+'npm start'
+
