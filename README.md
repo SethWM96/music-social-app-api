@@ -1,2 +1,2 @@
-This is where we put documentation so people can set up the app and work on it.
-Backend
+To run the project
+uvicorn main:app --reload
