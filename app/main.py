@@ -4,9 +4,8 @@ from pydantic import BaseModel
 from typing import List
 
 
-import db from SessionLocal
-
-from models.account import Account
+from db.db import SessionLocal
+from models.account.account import Account 
 
 # FastAPI app
 app = FastAPI()
