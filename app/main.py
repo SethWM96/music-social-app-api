@@ -1,20 +1,12 @@
 from fastapi import FastAPI, HTTPException, Depends
-from sqlalchemy import create_engine, Column, Integer, String, Sequence
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import List
 
-# Replace these values with your own PostgreSQL connection details
-DATABASE_URL = "postgresql://postgres:ABCD1234@localhost:5432/music_recommendation_app"
 
+import db from SessionLocal
 
-# SQLAlchemy configuration
-engine = create_engine(DATABASE_URL)
-Base = declarative_base()
-
-# Define SessionLocal
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+from models.account import Account
 
 # FastAPI app
 app = FastAPI()
@@ -27,16 +19,6 @@ def get_db():
     finally:
         db.close()
 
-# SQLAlchemy model
-class Account(Base):
-    __tablename__ = "account"
-    account_id = Column(Integer, Sequence('account_id_seq'), primary_key=True, index=True)
-    account_name = Column(String, unique=True, index=True)
-    email = Column(String, unique=True, index=True)
-    password = Column(String)
-
-# Create tables in the database
-Base.metadata.create_all(bind=engine)
 
 # Pydantic model for request and response
 class AccountRequest(BaseModel):
