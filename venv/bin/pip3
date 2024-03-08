@@ -1,4 +1,4 @@
-#!/Users/sethmartin/projects/music-social-app-api/venv/bin/python3
+#!/Users/nicholasdowling/Coding/music-social-app-api/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
